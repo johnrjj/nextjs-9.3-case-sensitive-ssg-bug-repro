@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 export async function getStaticPaths() {
   return {
     paths: [{ params: { slug: ["FOO"] } }],
@@ -21,6 +23,8 @@ export async function getStaticProps({
 }
 
 const Foo = () => {
+  const router = useRouter();
+  console.log(router.query);
   return (
     <>
       <div>
